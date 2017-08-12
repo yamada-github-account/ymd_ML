@@ -2,6 +2,7 @@
 #define YMD_OX_GAME_HH 1
 
 #include <type_traits>
+#include <algorithm>
 
 #include "ml_game.hh"
 
@@ -74,9 +75,11 @@ namespace ymd {
 
     virtual bool IsOver() override {
       auto winner = GameWinner();
-
       revenue = winner;
-      return winner ? true : false;
+
+      return (winner ||
+	      std::all_of(std::begin(cells),std::end(cells),
+			  [](auto c){ return bool(c); })) ? true : false;
     }
 
     auto Next() const noexcept {
@@ -153,6 +156,10 @@ namespace ymd {
       visual += mark[cells[8]+1];
       visual += "|\n-------\n";
       return visual;
+    }
+    virtual void Reset() override {
+      for(auto& c : cells){ c = 0; }
+      encode();
     }
   };
 

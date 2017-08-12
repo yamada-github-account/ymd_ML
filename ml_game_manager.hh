@@ -38,6 +38,8 @@ namespace ymd {
 	return;
       }
 
+      game->Reset();
+
       auto current_player = players.begin();
       while(!(game->IsOver())){
 

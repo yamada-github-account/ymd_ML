@@ -1,6 +1,7 @@
 #ifndef YMD_ML_GAME_HH
 #define YMD_ML_GAME_HH 1
 
+#include <iostream>
 #include <vector>
 #include <unordered_map>
 #include <functional>
@@ -49,6 +50,7 @@ namespace ymd {
     const auto LastRevenue() noexcept { return revenue; }
     virtual bool Visible() = 0;
     virtual std::string Visualize(){ return std::string{""}; }
+    virtual void Reset() = 0;
   }; // class ML_Game
 
 } // namespace ymd

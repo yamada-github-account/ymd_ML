@@ -17,6 +17,6 @@ int main(){
 	       [](double r){ return -r; });
 
   GM.Play();
-  
+
   return 0;
 }
