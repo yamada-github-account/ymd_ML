@@ -28,9 +28,14 @@ int main(int argc,char** argv){
   GM3.AddPlayer(ucb1,[](double r){ return -r; });
 
   for(auto i = 0ul; i < N; ++i){
-    GM1.Play();
-    GM2.Play();
+    // GM1.Play();
+    // GM2.Play();
     GM3.Play();
+
+    if(0 == i%100000){
+      std::cout << i << " times finished." << std::endl;
+      ucb1->Save("ox_game_ucb1.txt");
+    }
   }
 
   ucb1->Save("ox_game_ucb1.txt");

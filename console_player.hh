@@ -42,7 +42,13 @@ namespace ymd {
     }
 
     virtual void FeedbackRevenue(double revenue){
-      std::cout << (revenue > 0 ? "You Win!" :"You Lose!") << std::endl;
+      if(revenue > 0){
+	std::cout << "Win!" << std::endl;
+      }else if(revenue < 0){
+	std::cout << "Lose!" << std::endl;
+      }else{
+	std::cout << "Draw!" << std::endl;
+      }
     }
 
   };
